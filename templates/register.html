@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Register Page
+
+{% endblock title %}
+
+
+{% block main %}
+
+    <div class="card p-4 m-5 mycard">
+        <div class="card-title">
+            <h2 class="text-center">REGISTRATION FORM</h2>
+        </div>
+        <div class="card-body p-4 text-center">
+            <form action="/register/" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6"><input type="text" placeholder="First name" class="form-control" name="fname"></div>
+                    <div class="col-md-6"><input type="text" placeholder="Last name" class="form-control" name="lname"></div>
+                </div>          
+                <br>  
+                
+                <div class="row">
+                    <div class="col-md-6"><input type="text" placeholder="Address" class="form-control" name="address"></div>
+                    <div class="col-md-6"><input type="number" placeholder="Contact number" class="form-control" name="phone"></div>
+                </div>
+                
+                <br>
+
+                <input type="email" placeholder="Email" class="form-control" name="email">
+                <br>
+
+                <input type="text" placeholder="Username" class="form-control" name="username">
+                <br>
+                <input type="password" placeholder="Password" class="form-control" name="password">
+                <br>
+                <button type="submit" class="btn btn-primary  m-auto">SIGN UP</button>
+            </form>
+            <p class="m-3">Already have an account ? <a href="/login/">Then LOGIN</a></p>
+        </div>
+    </div>
+
+
+{% endblock %}

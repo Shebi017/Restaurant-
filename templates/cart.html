@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block main %}
+
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card mycard p-5">
+                <div class="">
+                    <div class="container">
+                        <div class="row justify-content-between">
+                            <div class="col-md-4">
+                                <a href="/product/" class="btn btn-success">Go back to Store</a>
+                                <h4 class="my-4">Total Item  : {{order.get_cart_items}}</h4>
+                            </div>
+                            <div class="offset-md-4 col-md-4">
+                                <a href="/select-branch/" class="btn btn-success">Order</a>
+                                <h4 class="my-4">Total :  ${{order.get_cart_total}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card mycard">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td><img src="{{item.product.image.url}}" alt=""class="cartimg img-thumbnail" style="height: 8rem; width: 8rem;"></td>
+                                <td>{{item.product.name}}</td>
+                                <td>{{item.product.price}}</td>
+                                <td>
+                                    <p class="quantity">{{item.quantity}}</p>
+                                    <div class="quantity">
+                                        <img class="chg-quantity update-cart" src="{% static  'images/arrow-up.png' %}" data-action="add" data-product_id="{{item.product.id}}">
+                                
+                                        <img class="chg-quantity update-cart" src="{% static  'images/arrow-down.png' %}" data-action="remove" data-product_id="{{item.product.id}}">
+                                    </div>
+                                </td>
+                                <td>${{item.get_total}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>   
+                <a href="/select-branch/"  class="btn btn-outline-dark my-3 mx-5">Order Now</a>          
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock main %}
+
+
+
+
+
+
+
+
+

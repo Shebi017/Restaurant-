@@ -1,0 +1,33 @@
+.slider-img{
+    height: 40rem;
+}
+
+.bannerimg{
+    height: 450px;
+}
+.cardimg{
+    height: 300px;
+}
+.card-header{
+    background-color: white !important;
+    border: none;
+}
+.cartimg{
+    height: 100px;
+    width: 100px;
+    padding-left: 10px;
+}
+.quantity{
+    display: inline-block;
+    font-weight: 700;
+    padding-right: 10px;
+}
+.chg-quantity{
+    width: 12px;
+    display: block;
+    cursor: pointer;
+    margin: 5px;
+}
+.hidden{
+    display: none;
+}

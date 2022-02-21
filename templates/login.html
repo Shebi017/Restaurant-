@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+Login Page
+
+{% endblock title %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div class="card p-4 my-5">
+                <div class="card-title">
+                    <h2 class="text-center">{{role}} LOGIN FORM</h2>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Username" class="form-control" name="username" required>
+                        <br>
+                        <input type="password" placeholder="Password" class="form-control" name="password" required>
+                        <br>
+                        <input type="submit" value="LOGIN" class="btn btn-primary  m-auto">
+                    </form>
+                    <p class="m-3">Not have an account ? <a href="/register/">Then Register</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+
+{% endblock %}

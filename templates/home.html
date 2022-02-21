@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+
+Home
+
+{% endblock title %}
+
+{% block main %}
+
+
+<!-- START OF SLIDER -->
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/slider7.jpg' %}" class="d-block w-100 slider-img" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/slider8.jpg' %}" class="d-block w-100 slider-img" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/slider9.jpg' %}" class="d-block w-100 slider-img" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- END OF SLIDER -->
+
+<!-- START OF CARDS -->
+
+<div class="container">
+    <h2 class="text-center my-5">Categories</h2>
+    <div class="row">
+        <div class="offset-md-1 col-md-4 my-2">
+            <div class="card" ">
+                <img src="{% static 'images/slider7.jpg' %}" class="card-img-top" alt="..." style="height: 20rem;">
+                <div class="card-body">
+                  <h5 class="card-title">VEGETABLES FOOD</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{% url 'product' %}?q=V" class="btn btn-dark">VEGETABLES FOOD</a>
+                </div>
+              </div>
+        </div>
+        <div class="offset-md-2 col-md-4 my-2">
+            <div class="card">
+                <img src="{% static 'images/slider9.jpg' %}" class="card-img-top" alt="" style="height: 20rem;">
+                <div class="card-body">
+                  <h5 class="card-title">NON VEGETABLES FOOD</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="{% url 'product' %}?q=NV" class="btn btn-dark">NON VEGETABLES FOOD</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<!-- END OF CARDS  -->
+
+
+
+
+{% endblock main %}

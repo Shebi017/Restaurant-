@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Select Branch
+{% endblock title%}
+
+{% block main %}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div class="card p-5">
+                <form action="" method="POST">
+                    {% csrf_token%}
+                    <select name="branch_id" id="" class="form-select" required>
+                        <option value="" selected disabled>Select Branch</option>
+                        {% for i in branches %}
+                            <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="SELECT" class="btn btn-dark mt-3">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

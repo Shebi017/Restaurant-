@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container mt-4">
+    <h3 class="text-center">Cashier Name :  {{request.user}}</h3>
+    <h3 class="text-center">Cashier Branch :   {{branch}}</h2>
+</div>
+
+<div class="container">
+    <div class="row bg-light p-3 my-3">
+        <div class="col-1"><b>ID</b></div>
+        <div class="col-2"><b>Customer Name</b></div>
+        <div class="col-2">
+            <div class="row"><b>Items Name</b></div>
+        </div>
+        <div class="col-1">
+            <div class="row"><b>Price</b></div>
+        </div>
+
+        <div class="col-2">
+            <div class="row"><b>Quanitity</b></div>
+        </div>
+
+        <div class="col-1">
+            <div class="row"><b>SubTotal</b></div>
+        </div>
+
+        <div class="col-1">
+            <b>Total</b>
+        </div>
+        <div class="col-2"><b>Payment Action</b></div>
+
+    </div>
+    {% for i,j in data %}
+        <div class="row">
+            <div class="col-1">{{i.id}}</div>
+            <div class="col-2">{{i.customer.user.username}}</div>
+            <div class="col-2">
+                {% for a in j %}
+                    <div class="row">{{a.product.name}}</div>
+                {% endfor %}
+            </div>
+            <div class="col-1">
+                {% for a in j %}
+                    <div class="row">{{a.product.price}}</div>
+                {% endfor %}
+            </div>
+            <div class="col-2">
+                {% for a in j %}
+                    <div class="row">{{a.quantity}}</div>
+                {% endfor %}
+            </div>
+            <div class="col-1">
+                {% for a in j %}
+                    <div class="row">{{a.get_total}}</div>
+                {% endfor %}
+            </div>
+
+            <div class="col-1" style="color: red; ;">
+                <b>{{i.get_cart_total}}</b>
+            </div>
+
+            <div class="col-2">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="text" hidden value="{{i.id}}" name="id">
+                    <input type="submit" class="btn btn-md btn-dark" value="Done">
+                </form>
+            </div>
+
+        </div>
+        <hr>
+    {% endfor %}
+</div>
+
+{% endblock main %}
